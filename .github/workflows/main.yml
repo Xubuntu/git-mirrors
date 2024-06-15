@@ -1,0 +1,18 @@
+name: Mirror to GitHub Repo
+
+on: [ push, delete, create ]
+
+# Ensures that only one mirror task will run at a time.
+concurrency:
+  group: git-mirror
+
+jobs:
+  git-mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: wearerequired/git-mirror-action@v1
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        with:
+          source-repo: "git+ssh://bluesabre@git.launchpad.net/~xubuntu-dev/ubuntu-seeds/+git/xubuntu"
+          destination-repo: "git@github.com:Xubuntu/xubuntu-seed.git"
