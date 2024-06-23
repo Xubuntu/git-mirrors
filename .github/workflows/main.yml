@@ -16,5 +16,5 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         with:
-          source-repo: "git+ssh://bluesabre@git.launchpad.net/~xubuntu-dev/ubuntu-seeds/+git/xubuntu"
+          source-repo: "https://git.launchpad.net/~xubuntu-dev/ubuntu-seeds/+git/xubuntu"
           destination-repo: "git@github.com:Xubuntu/xubuntu-seed.git"
