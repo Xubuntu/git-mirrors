@@ -3,6 +3,7 @@ name: Mirror to GitHub Repo
 on:
   schedule:
     - cron: "44 * * * *"
+  workflow_dispatch:
 
 # Ensures that only one mirror task will run at a time.
 concurrency:
